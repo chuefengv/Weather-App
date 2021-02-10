@@ -1,4 +1,7 @@
 .header {
   color: green;
   border: green solid;
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
+  background-color: #ddd;
 }
