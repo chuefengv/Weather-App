@@ -10,8 +10,29 @@ html {
   margin: 0;
   display: grid;
   /* border: black solid; */
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 6fr 3fr;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
   width: 100vw;
   height: 100vh;
+}
+
+.header {
+  grid-column-start: 1;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.body {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 2;
+  grid-row-end: 9;
+}
+
+.footer {
+  grid-column-start: 6;
+  grid-column-end: 9;
+  grid-row-start: 2;
+  grid-row-end: 9;
 }

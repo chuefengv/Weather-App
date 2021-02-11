@@ -7,8 +7,8 @@ function Header(){
     return(
         <div className='header'>
             Header
-            <Title />
-            <Clock />
+            <Title className='title'/>
+            <Clock className='clock'/>
             
         </div>
     )

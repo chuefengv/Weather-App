@@ -2,6 +2,20 @@
   color: green;
   border: green solid;
   display: grid;
-  grid-template-columns: 2fr 4fr 2fr;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
   background-color: #ddd;
+}
+
+.title {
+  grid-column-start: 2;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.clock {
+  grid-column-start: 6;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }

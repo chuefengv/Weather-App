@@ -21,9 +21,9 @@ function App(){
 
   return (
     <div className='container'>
-      <Header />
-      <Body />
-      <Footer />
+      <Header className='header' />
+      <Body className='body' />
+      <Footer className='footer' />
     </div>
   );
 }

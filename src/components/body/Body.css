@@ -2,13 +2,16 @@
   color: red;
   border: red solid;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
 }
 
 .display {
-  grid-column-start: 2;
-  grid-column-end: 4;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+  grid-column-start: 1;
+  grid-column-end: 9;
   grid-row-start: 1;
   grid-row-end: 7;
 }
