@@ -6,7 +6,7 @@ import './Header.css'
 function Header(){
     return(
         <div className='header'>
-            Header
+            Logo
             <Title className='title'/>
             <Clock className='clock'/>
             
