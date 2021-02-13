@@ -5,16 +5,17 @@ import './style.css'
 
 
 function App(){
-  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [lastState, setLastState] = useState("");
   const [flag, setFlag] = useState(false);
-  const [lastCity, setLastCity] = useState("");
+
 
 
   return (
     <div className='container'>
       <Header className='header' />
-      <Body className='body' flag={flag} lastCity={lastCity}/>
-      <Footer className='footer' setCity={setCity} setFlag={setFlag} setLastCity={setLastCity} city={city}/>
+      <Body className='body' flag={flag} lastState={lastState}/>
+      <Footer className='footer' setState={setState} setFlag={setFlag} setLastState={setLastState} state={state}/>
     </div>
   );
 }

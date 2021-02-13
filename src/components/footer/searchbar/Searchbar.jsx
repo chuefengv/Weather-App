@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import './Searchbar.css'
 
-function Searchbar({setCity, setFlag, setLastCity, city}){
+function Searchbar({setState, setFlag, setLastState, state}){
 
     handleChange = (e) =>{
         e.preventDefault();
         console.log(e.target.value);
-        setCity(e.target.value);
+        setState(e.target.value);
     }
     
     handleSubmit = (e) => {
         e.preventDefault();
         console.log("submitted");
-        setLastCity(city)
+        setLastState(state)
         setFlag(true);
     }
 
     return(
         <div className='searchbar'>
-            <form>
+            <div className="state-search">
+                Search
+                <br></br>
                 <select defaultValue="default" onChange={handleChange}>
                     <option value="default" disabled>Choose a state...</option>
                     <option value="Alabama">Alabama</option>
@@ -73,7 +75,14 @@ function Searchbar({setCity, setFlag, setLastCity, city}){
                     <option value="Wyoming">Wyoming</option>
                 </select>
                 <button type="button" onClick={handleSubmit}>Search</button>
-            </form >
+            </div>
+            <div className='city-search'>
+                Advanced Search
+                <br></br>
+                <select defaultValue="default" onChange={handleChange}>
+                    <option value="default">Choose a city...</option>
+                </select>
+            </div>
         </div>
     );
 };

@@ -2,11 +2,11 @@ import React from 'react';
 import Searchbar from './searchbar'
 import './Footer.css'
 
-function Footer({setCity, setFlag, setLastCity, city}){
+function Footer({setState, setFlag, setLastState, state}){
     return(
         <div className='footer'>
             Footer
-            <Searchbar className='searchbar' setCity={setCity} setFlag={setFlag} setLastCity={setLastCity} city={city}/>
+            <Searchbar className='searchbar' setState={setState} setFlag={setFlag} setLastState={setLastState} state={state}/>
         </div>
     )
 }
