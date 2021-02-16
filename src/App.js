@@ -15,7 +15,7 @@ function App(){
     <div className='container'>
       <Header className='header' />
       <Body className='body' flag={flag} lastState={lastState}/>
-      <Footer className='footer' setState={setState} setFlag={setFlag} setLastState={setLastState} state={state}/>
+      <Footer className='footer' setState={setState} setFlag={setFlag} setLastState={setLastState} state={state} lastState={lastState}/>
     </div>
   );
 }

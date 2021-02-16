@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import './Searchbar.css'
+import Axios from 'axios';
+import './Searchbar.css';
 
-function Searchbar({setState, setFlag, setLastState, state}){
+function Searchbar({setState, setFlag, setLastState, state, lastState}){
+
+    const [cities, setCities] = useState([]);
+    const [currState, setCurrState] = useState("");
 
     handleChange = (e) =>{
         e.preventDefault();
@@ -15,6 +19,16 @@ function Searchbar({setState, setFlag, setLastState, state}){
         setLastState(state)
         setFlag(true);
     }
+
+    useEffect(()=>{
+        setCurrState(lastState);
+        Axios.get("http://localhost:3000/api/data", {params: {state:state}})
+        .then((response)=>{
+            setCities(response.data);
+            console.log('test');
+            console.log(cities);
+        })
+    },[state]);
 
     return(
         <div className='searchbar'>
@@ -57,8 +71,8 @@ function Searchbar({setState, setFlag, setLastState, state}){
                     <option value="New York">New York</option>
                     <option value="North Carolina">North Carolina</option>
                     <option value="North Dakota">North Dakota</option>
-                    <option value="Ohio">Ohio</option
-                    ><option value="Oklahoma">Oklahoma</option>
+                    <option value="Ohio">Ohio</option>
+                    <option value="Oklahoma">Oklahoma</option>
                     <option value="Oregon">Oregon</option>
                     <option value="Pennsylvania">Pennsylvania</option>
                     <option value="Rhode Island">Rhode Island</option>
@@ -67,8 +81,8 @@ function Searchbar({setState, setFlag, setLastState, state}){
                     <option value="Tennessee">Tennessee</option>
                     <option value="Texas">Texas</option>
                     <option value="Utah">Utah</option>
-                    <option value="Vermont">Vermont</option
-                    ><option value="Virginia">Virginia</option>
+                    <option value="Vermont">Vermont</option>
+                    <option value="Virginia">Virginia</option>
                     <option value="Washington">Washington</option>
                     <option value="West Virginia">West Virginia</option>
                     <option value="Wisconsin">Wisconsin</option>
@@ -80,7 +94,10 @@ function Searchbar({setState, setFlag, setLastState, state}){
                 Advanced Search
                 <br></br>
                 <select defaultValue="default" onChange={handleChange}>
-                    <option value="default">Choose a city...</option>
+                    <option value="default">Choose a new city...</option>
+                    {cities.map((cityName)=>{
+                        return <option value={cityName.city}>{cityName.city}</option>
+                    })}
                 </select>
             </div>
         </div>

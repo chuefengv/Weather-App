@@ -30,6 +30,7 @@ function Display({flag, lastState}){
     return(
         <div className='display'>
             {loading && flag && <div>{lastState} {weather}</div>}
+            
         </div>
     )
 }
