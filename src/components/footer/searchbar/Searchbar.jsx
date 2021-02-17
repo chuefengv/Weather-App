@@ -2,16 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import './Searchbar.css';
 
-function Searchbar({setState, setFlag, setLastState, state, lastState}){
-
+function Searchbar({setState, setFlag, setLastState, state, lastState, city, setCity, currState, setCurrState, setLastCity, lastCity}){
     const [cityQuery, setCityQuery] = useState([]);
-    const [city, setCity] = useState("");
-    const [currState, setCurrState] = useState("");
 
     handleStateChange = (e) =>{
         e.preventDefault();
         console.log(e.target.value);
         setState(e.target.value);
+        setCity("");
     }
     handleCityChange = (e) =>{
         e.preventDefault();
@@ -21,8 +19,10 @@ function Searchbar({setState, setFlag, setLastState, state, lastState}){
     
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log("submitted");
+        console.log("handle has been submitted");
         setLastState(state)
+        setLastCity(city)
+        
         setFlag(true);
     }
 
@@ -31,8 +31,6 @@ function Searchbar({setState, setFlag, setLastState, state, lastState}){
         Axios.get("http://localhost:3000/api/data", {params: {state:state}})
         .then((response)=>{
             setCityQuery(response.data);
-            console.log('test');
-            console.log(cityQuery);
         })
     },[state]);
 

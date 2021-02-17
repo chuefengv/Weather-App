@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const API_KEY='3bb9bbd32853ab443e3fc197c20c61ff';
 
-function Display({flag, lastState}){
+function Display({flag, lastState, lastCity}){
 
     const [weather, setWeather] = useState("");
     const [loading, setLoading] = useState(false);
@@ -12,7 +12,7 @@ function Display({flag, lastState}){
     useEffect(()=>{
         setLoading(false);
 
-        axios.get(`http://api.weatherstack.com/current?access_key=${API_KEY}&units=f&query=${lastState},united_states`)    
+        axios.get(`http://api.weatherstack.com/current?access_key=${API_KEY}&units=f&query=${lastCity},${lastState},united_states`)    
         .then(res =>{
             if(lastState===""){
                 setWeather("");
@@ -25,11 +25,11 @@ function Display({flag, lastState}){
         .catch(err =>{
             console.log('bad error');
         })
-    },[lastState]);
+    },[lastState, lastCity]);
 
     return(
         <div className='display'>
-            {loading && flag && <div>{lastState} {weather}</div>}
+            {loading && flag && <div> {lastCity}, {lastState} {weather}</div>}
             
         </div>
     )
