@@ -4,13 +4,19 @@ import './Searchbar.css';
 
 function Searchbar({setState, setFlag, setLastState, state, lastState}){
 
-    const [cities, setCities] = useState([]);
+    const [cityQuery, setCityQuery] = useState([]);
+    const [city, setCity] = useState("");
     const [currState, setCurrState] = useState("");
 
-    handleChange = (e) =>{
+    handleStateChange = (e) =>{
         e.preventDefault();
         console.log(e.target.value);
         setState(e.target.value);
+    }
+    handleCityChange = (e) =>{
+        e.preventDefault();
+        console.log(e.target.value);
+        setCity(e.target.value);
     }
     
     handleSubmit = (e) => {
@@ -24,9 +30,9 @@ function Searchbar({setState, setFlag, setLastState, state, lastState}){
         setCurrState(lastState);
         Axios.get("http://localhost:3000/api/data", {params: {state:state}})
         .then((response)=>{
-            setCities(response.data);
+            setCityQuery(response.data);
             console.log('test');
-            console.log(cities);
+            console.log(cityQuery);
         })
     },[state]);
 
@@ -35,7 +41,7 @@ function Searchbar({setState, setFlag, setLastState, state, lastState}){
             <div className="state-search">
                 Search
                 <br></br>
-                <select defaultValue="default" onChange={handleChange}>
+                <select defaultValue="default" onChange={handleStateChange}>
                     <option value="default" disabled>Choose a state...</option>
                     <option value="Alabama">Alabama</option>
                     <option value="Alaska">Alaska</option>
@@ -93,10 +99,10 @@ function Searchbar({setState, setFlag, setLastState, state, lastState}){
             <div className='city-search'>
                 Advanced Search
                 <br></br>
-                <select defaultValue="default" onChange={handleChange}>
+                <select defaultValue="default" onChange={handleCityChange}>
                     <option value="default">Choose a new city...</option>
-                    {cities.map((cityName)=>{
-                        return <option value={cityName.city}>{cityName.city}</option>
+                    {cityQuery.map((cityName)=>{
+                        return <option key={cityName.id} value={cityName.city}>{cityName.city}</option>
                     })}
                 </select>
             </div>
