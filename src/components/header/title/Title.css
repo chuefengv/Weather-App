@@ -1,4 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel&display=swap");
 .title {
-  padding-top: 20px;
-  font-size: 25px;
+  font-size: 40px;
+  font-family: cursive;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

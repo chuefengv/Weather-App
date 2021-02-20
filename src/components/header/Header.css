@@ -1,8 +1,7 @@
 .header {
-  color: green;
-  border: green solid;
+  color: white;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 5fr 6fr;
   grid-template-rows: 1fr;
-  background-color: #ddd;
+  background-color: #21ce99;
 }

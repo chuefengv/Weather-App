@@ -2,14 +2,15 @@
   color: blue;
   border: blue solid;
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
 }
 
 .searchbar {
-  margin-top: 20px;
   grid-column-start: 2;
-  grid-column-end: 8;
-  grid-row-start: 1;
-  grid-row-end: 7;
+  grid-column-end: 10;
+  grid-row-start: 2;
+  grid-row-end: auto;
+  padding: 20px;
+  justify-self: center;
 }

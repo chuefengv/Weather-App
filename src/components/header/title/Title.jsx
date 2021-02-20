@@ -4,9 +4,13 @@ import './Title.css'
 
 function Title(){
     return(
+        
         <div className='title'>
-            eather-App
+            <a href='./'>
+                eather-App
+            </a>
         </div>
+       
     );
 };
 
