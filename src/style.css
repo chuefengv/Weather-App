@@ -1,6 +1,6 @@
 body,
 html {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   margin: 0;
 }
@@ -10,8 +10,8 @@ html {
   margin: 0;
   display: grid;
   /* border: black solid; */
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: auto;
+  grid-template-rows: auto 1fr;
   width: 100vw;
   height: 100vh;
 }
