@@ -1,16 +1,13 @@
 import React, { useEffect, useState }  from 'react'
 import axios from 'axios';
 
-
 const API_KEY='3bb9bbd32853ab443e3fc197c20c61ff';
 
 function Display({flag, lastState, lastCity}){
 
-    const [weather, setWeather] = useState("");
-    const [loading, setLoading] = useState(false);
+    const [temp, setTemp] = useState("");
 
     useEffect(()=>{
-        setLoading(false);
 
         axios.get(`http://api.weatherstack.com/current?access_key=${API_KEY}&units=f&query=${lastCity},${lastState},united_states`)    
         .then(res =>{
@@ -18,8 +15,7 @@ function Display({flag, lastState, lastCity}){
                 setWeather("");
             }else{
                 console.log(res.data.current.temperature);
-                setWeather(res.data.current.temperature);
-                setLoading(true);
+                setTemp(res.data.current.temperature);
             }
         })
         .catch(err =>{
@@ -29,9 +25,31 @@ function Display({flag, lastState, lastCity}){
 
     return(
         <div className='display'>
-            {loading && flag && <div> {lastCity}, {lastState} {weather}</div>}
-            
+            <div className='temperature'>
+                79F
+            </div>
+            <div className='weather-desc'>
+                WEATHER DESC.
+            </div>
+            <div className='city-name'>
+                {/* {lastCity && <div> {lastCity} </div>} */}
+                Fitchburg
+            </div> 
+            <div className='state-name'>
+                {/* {flag && <div> {lastState} {temp}</div>} */}
+                Massachusetts
+            </div>
+            <div className='time-display'>
+                TIME
+            </div>
+            <div className='date-display'>
+                DATE
+            </div>
+            <div className='weather-icon'>
+                SUNHERE
+            </div>
         </div>
+
     )
 }
 

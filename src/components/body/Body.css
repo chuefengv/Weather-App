@@ -1,6 +1,6 @@
 .body {
   color: red;
-  border: red solid;
+  /* border: red solid; */
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
@@ -10,9 +10,73 @@
   margin-top: 20px;
   margin-right: 20px;
   margin-left: 20px;
+  padding: 30px;
   grid-column-start: 1;
   grid-column-end: 9;
   grid-row-start: 1;
   grid-row-end: 7;
+  background-color: white;
+  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  grid-template-rows: 2fr 2fr 2fr 2fr 2fr;
+  column-gap: 5px;
+  row-gap: 5px;
+}
+
+.temperature {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  font-size: 5em;
+  justify-self: center;
   background-color: #eee;
+}
+
+.city-name {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 6;
+  font-size: 2em;
+  background-color: #ddd;
+  align-self: end;
+}
+
+.state-name {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 6;
+  font-size: 2em;
+  background-color: #eee;
+  align-self: end;
+}
+
+.weather-desc {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  background-color: rgb(172, 172, 172);
+}
+
+.time-display {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 6;
+  background-color: #eef;
+}
+
+.date-display {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 5;
+  background-color: #eef;
+}
+
+.weather-icon {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 5;
+  background-color: rgb(203, 203, 249);
 }

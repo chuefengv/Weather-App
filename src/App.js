@@ -15,11 +15,11 @@ function App(){
 
 
   return (
-    <div className='container'>
-      <Header className='header' />
-      <Body className='body' flag={flag} lastState={lastState} lastCity={lastCity}/>
-      <Footer className='footer' setLastCity={setLastCity} lastCity={lastCity} city={city} setCity={setCity} currState={currState} setCurrState={setCurrState} setState={setState} setFlag={setFlag} setLastState={setLastState} state={state} lastState={lastState}/>
-    </div>
+      <div className='container'>
+        <Header className='header' />
+        <Body className='body' flag={flag} lastState={lastState} lastCity={lastCity}/>
+        <Footer className='footer' setLastCity={setLastCity} lastCity={lastCity} city={city} setCity={setCity} currState={currState} setCurrState={setCurrState} setState={setState} setFlag={setFlag} setLastState={setLastState} state={state} lastState={lastState}/>
+      </div>
   );
 }
 
