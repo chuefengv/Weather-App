@@ -21,7 +21,7 @@
   grid-template-columns: 2fr 2fr 2fr 2fr;
   grid-template-rows: 2fr 2fr 2fr 2fr 2fr;
   column-gap: 5px;
-  row-gap: 5px;
+  row-gap: 15px;
 }
 
 .temperature {
@@ -30,47 +30,60 @@
   grid-row-start: 1;
   grid-row-end: 3;
   font-size: 5em;
-  justify-self: center;
-  background-color: #eee;
+  align-self: start;
 }
 
 .city-name {
   grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 6;
+  grid-column-end: 4;
+  grid-row-start: 5;
   font-size: 2em;
-  background-color: #ddd;
   align-self: end;
 }
 
 .state-name {
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 4;
   grid-row-start: 6;
   font-size: 2em;
-  background-color: #eee;
   align-self: end;
 }
 
 .weather-desc {
+  font-size: 1.25em;
   grid-column-start: 2;
-  grid-column-end: 3;
+  grid-column-end: 4;
   grid-row-start: 1;
-  background-color: rgb(172, 172, 172);
+  align-self: center;
+  justify-self: center;
+}
+
+.weather-details {
+  font-size: 1.25em;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  justify-self: end;
+  align-self: center;
 }
 
 .time-display {
+  justify-self: end;
+  align-self: end;
+  font-size: 2em;
   grid-column-start: 4;
   grid-column-end: 5;
   grid-row-start: 6;
-  background-color: #eef;
 }
 
 .date-display {
+  font-size: 2em;
+  justify-self: end;
+  align-self: end;
   grid-column-start: 4;
   grid-column-end: 5;
   grid-row-start: 5;
-  background-color: #eef;
 }
 
 .weather-icon {
@@ -78,5 +91,5 @@
   grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 5;
-  background-color: rgb(203, 203, 249);
+  background-color: #eff;
 }
