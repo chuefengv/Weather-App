@@ -2,8 +2,7 @@ import React, { useEffect, useState }  from 'react'
 import axios from 'axios';
 import Clock from 'react-live-clock';
 import './Display.css'
-import ReactAnimatedWeather from 'react-animated-weather';
-
+import Weather_icon from './weather_icon'
 
 const API_KEY='3bb9bbd32853ab443e3fc197c20c61ff';
 
@@ -53,8 +52,8 @@ function Display({flag, lastState, lastCity}){
     },[lastCity]);
     const defaults = {
         icon: 'CLEAR_DAY',
-        color: 'goldenrod',
-        size: 212,
+        color: 'white',
+        size: 200,
         animate: true
       };
     return(
@@ -102,12 +101,7 @@ function Display({flag, lastState, lastCity}){
                 {<Clock format={'dddd'} />}
             </div>
             <div className='weather-icon'>
-                <ReactAnimatedWeather
-                    icon={defaults.icon}
-                    color={defaults.color}
-                    size={defaults.size}
-                    animate={defaults.animate}
-                />
+                
             </div>
         </div>
 
