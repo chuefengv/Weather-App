@@ -2,6 +2,8 @@ import React, { useEffect, useState }  from 'react'
 import axios from 'axios';
 import Clock from 'react-live-clock';
 import './Display.css'
+import ReactAnimatedWeather from 'react-animated-weather';
+
 
 const API_KEY='3bb9bbd32853ab443e3fc197c20c61ff';
 
@@ -43,14 +45,18 @@ function Display({flag, lastState, lastCity}){
                 setWind(res.data.current.wind_speed);
                 setWeatherDesc(res.data.current.weather_descriptions);
                 setTimezone(res.data.location.timezone_id);
-                
             }
         })
         .catch(err =>{
             console.log('bad error');
         })
     },[lastCity]);
-
+    const defaults = {
+        icon: 'CLEAR_DAY',
+        color: 'goldenrod',
+        size: 212,
+        animate: true
+      };
     return(
         <div className='display'>
             <div className='temperature'>
@@ -96,7 +102,12 @@ function Display({flag, lastState, lastCity}){
                 {<Clock format={'dddd'} />}
             </div>
             <div className='weather-icon'>
-                SUNHERE
+                <ReactAnimatedWeather
+                    icon={defaults.icon}
+                    color={defaults.color}
+                    size={defaults.size}
+                    animate={defaults.animate}
+                />
             </div>
         </div>
 
