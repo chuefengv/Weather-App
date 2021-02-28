@@ -14,7 +14,7 @@ function Display({flag, lastState, lastCity}){
     const [wind, setWind] = useState("");
     const [weatherDesc, setWeatherDesc] = useState("");
     const [timezone, setTimezone] = useState("");
-
+    const [forecast, setForecast] = useState("");
 
     useEffect(()=>{
             axios.get(`http://api.weatherstack.com/current?access_key=${API_KEY}&units=f&query=${lastState},united_states`)    
@@ -26,6 +26,7 @@ function Display({flag, lastState, lastCity}){
                     setWind(res.data.current.wind_speed);
                     setWeatherDesc(res.data.current.weather_descriptions);
                     setTimezone(res.data.location.timezone_id);
+                    setForecast(res.data.current.weather_code);
                     
                 }
             })
@@ -44,18 +45,14 @@ function Display({flag, lastState, lastCity}){
                 setWind(res.data.current.wind_speed);
                 setWeatherDesc(res.data.current.weather_descriptions);
                 setTimezone(res.data.location.timezone_id);
+                setForecast(res.data.current.weather_code);
             }
         })
         .catch(err =>{
             console.log('bad error');
         })
     },[lastCity]);
-    const defaults = {
-        icon: 'CLEAR_DAY',
-        color: 'white',
-        size: 200,
-        animate: true
-      };
+
     return(
         <div className='display'>
             <div className='temperature'>
@@ -65,7 +62,6 @@ function Display({flag, lastState, lastCity}){
             <div className='weather-desc'>
                 {!lastState && <div>What to expect outside</div>}
                 {lastState && <div>{weatherDesc}</div>}
-
             </div>
             <div className='weather-details'>
             {!lastState && 
@@ -84,7 +80,6 @@ function Display({flag, lastState, lastCity}){
                 <br></br>
                 Wind Speeds: {wind}mph
             </div>}
-
             </div>
             <div className='city-name'>
                 {lastCity && <div> {lastCity}, </div>}
@@ -101,7 +96,7 @@ function Display({flag, lastState, lastCity}){
                 {<Clock format={'dddd'} />}
             </div>
             <div className='weather-icon'>
-                
+                <Weather_icon forecast={forecast} lastState={lastState}/>
             </div>
         </div>
 
