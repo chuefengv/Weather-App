@@ -54,6 +54,26 @@ forecast_map.set(395, "SNOW")
 
 function Weather_icon({forecast, lastState}){
 
+    useEffect(()=>{
+        display = document.getElementsByClassName('display')[0];
+        console.log(forecast);
+
+        if(forecast_map.get(forecast)=='CLEAR_DAY' || forecast_map.get(forecast)=='PARTLY_CLOUDY_DAY'){
+            display.style.backgroundPosition='left';
+            display.style.transition='background-position 3s'
+        }
+        else if(forecast_map.get(forecast)==='FOG' || forecast_map.get(forecast)==='CLOUDY' || forecast_map.get(forecast)==='RAINY'){
+            display.style.backgroundPosition='center';
+            display.style.transition='background-position 3s'
+
+        }
+        else if(forecast_map.get(forecast)==='SLEET' || forecast_map.get(forecast)==='SNOW'){
+            display.style.backgroundPosition='right';
+            display.style.transition='background-position 3s'
+
+        }
+    },[forecast]);
+
     return(
         <div>
             {!lastState &&              

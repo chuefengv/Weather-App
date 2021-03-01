@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Display from './display'
 import './Body.css'
 
 
 function Body({flag, lastState, lastCity}){
+
 
     return(
         <div className='body'>
