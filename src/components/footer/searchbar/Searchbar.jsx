@@ -9,14 +9,27 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
         e.preventDefault();
         console.log(e.target.value);
         setState(e.target.value);
-        setCity("");
+        setCity(defaultValue)
     }
     handleCityChange = (e) =>{
         e.preventDefault();
         console.log(e.target.value);
         setCity(e.target.value);
     }
-    
+
+
+
+    handleClear = (e) =>{
+        e.preventDefault();
+        console.log("Cleared the selects");
+        document.getElementById('s-search').selectedIndex=0;
+        document.getElementById('c-search').selectedIndex=0;
+        setState("");
+        setCity("");
+    }
+
+
+
     handleSubmit = (e) => {
         e.preventDefault();
         console.log("handle has been submitted");
@@ -42,7 +55,7 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
                     <p>State Search</p>
                 </div>
                 <div className="state-search">
-                    <select defaultValue="default" onChange={handleStateChange}>
+                    <select id='s-search' defaultValue="default" onChange={handleStateChange}>
                         <option value="default" disabled>Choose a state...</option>
                         <option value="Alabama">Alabama</option>
                         <option value="Alaska">Alaska</option>
@@ -100,7 +113,7 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
                     <p>Advanced City Search</p>
                 </div>
                 <div className='city-search'>
-                    <select tabIndex='1' onChange={handleCityChange}>
+                    <select id='c-search' tabIndex='1' onChange={handleCityChange}>
                         <option value="default">Choose a city...</option>
                         {cityQuery.map((cityName)=>{
                             return <option key={cityName.id} value={cityName.city}>{cityName.city}</option>
@@ -109,7 +122,7 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
                 </div>
             </div>
             <div className='buttons'>
-                <button className='clear-button' type="button">Clear</button>
+                <button className='clear-button' type="button" onClick={handleClear}>Clear</button>
                 <button className='submit-button' type="button" onClick={handleSubmit}>Search</button>
             </div>
         </div>
