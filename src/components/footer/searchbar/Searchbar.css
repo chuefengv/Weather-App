@@ -19,22 +19,30 @@
 .search-wrapper {
   grid-column: span 10;
   grid-row-start: 5;
-  background-color: rgb(240, 238, 238);
+  /* background-color: rgb(240, 238, 238); */
+  border-top: rgba(0, 0, 0, 0.15) solid;
+  border-bottom: rgba(0, 0, 0, 0.15) solid;
   padding: 1em;
   color: hsl(0, 0%, 15%);
 }
+
 .search-1 {
   grid-column: span 10;
   justify-self: start;
   font-weight: bold;
+  font-size: 1.5em;
   padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .search-2 {
   grid-column: span 10;
   justify-self: start;
   font-weight: bold;
+  font-size: 1.5em;
   padding-top: 10px;
+  padding-bottom: 10px;
+  
 }
 
 .state-search {
@@ -45,6 +53,16 @@
 .city-search {
   grid-column: span 10;
   justify-self: start;
+}
+
+.state-search > select {
+  background: rgba(0, 0, 0, 0.15);
+  font-size: 1em;
+}
+
+.city-search > select {
+  background: rgba(0, 0, 0, 0.15);
+  font-size: 1em;
 }
 
 .buttons {
