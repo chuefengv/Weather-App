@@ -7,9 +7,9 @@ import gitIcon from 'url:../../../assets/github.png'
 function Logo(){
     return(
         <div className='logo'>
-            {/* <a className='git-icon' href='./'>
+            <a target="_blank" rel="noopener noreferrer" className='git-icon' href='https://github.com/chuefengv/Weather-App'>
                 <img src={gitIcon}></img>
-            </a> */}
+            </a>
             <a className='radar-icon' href='./'>
                 <img src={logo}></img>
             </a>
