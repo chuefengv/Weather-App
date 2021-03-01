@@ -9,7 +9,7 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
         e.preventDefault();
         console.log(e.target.value);
         setState(e.target.value);
-        setCity(defaultValue)
+        // setCity(defaultValue)
     }
     handleCityChange = (e) =>{
         e.preventDefault();
@@ -49,7 +49,7 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
 
     return(
         <div className='searchbar'>
-            <div className='search-header'>Select Your State...</div>
+            <div className='search-header'>Select Your State</div>
             <div className='search-wrapper'>
                 <div className='search-1'>
                     <p>State Search</p>

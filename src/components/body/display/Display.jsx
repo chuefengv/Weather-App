@@ -97,7 +97,7 @@ function Display({flag, lastState, lastCity}){
                 {lastCity && <div> {lastCity}, </div>}
             </div> 
             <div className='state-name'>
-                {!lastState && <div>Today's Weather Forecast</div>}
+                {!lastState && <div>Today's Forecast</div>}
                 {lastState && <div> {lastState}</div>}
             </div>
             <div className='time-display'>

@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
-.body {
-  color: white;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  font-family: 'Roboto Condensed', sans-serif;
-}
 
+@media (min-width: 1050px){
+  .body {
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+}

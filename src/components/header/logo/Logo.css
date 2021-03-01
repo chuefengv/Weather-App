@@ -1,14 +1,17 @@
-.logo {
-  padding-top: 10px;
-  display: grid;
-  grid-template-columns: auto 1fr;
-}
 
-.radar-icon{
-  justify-self: end;
-}
 
-.git-icon{
-  padding-left: 20px;
-}
+@media (min-width:1050px){
+  .logo {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
 
+  .radar-icon{
+    justify-self: end;
+  }
+
+  .git-icon{
+    padding-left: 20px;
+  }
+}
