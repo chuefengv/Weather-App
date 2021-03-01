@@ -1,11 +1,9 @@
 
 
-@media (min-width:1050px){
+@media (max-width:1500px){
   .searchbar {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    /* grid-template-rows: repeat(10, 1fr); */
-    flex-direction: column;
     background-color: white;
     border-radius: 8px;
   }
@@ -72,6 +70,110 @@
     grid-column: span 10;
     grid-row-start: 9;
     justify-self: end;
+  }
+
+  .submit-button {
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 0.6em 1.4em;
+    margin: 0 0.6em 0.6em 0;
+    background-color: rgb(236, 143, 20);
+    color: white;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 20px;
+    box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+  }
+
+  .submit-button:hover {
+    background-color: rgb(236, 165, 71);
+  }
+
+  .clear-button {
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: white;
+    color: hsl(0, 0%, 15%);
+
+  }
+}
+
+
+@media (max-width:1050px){
+  .searchbar {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    background-color: white;
+    border-radius: 8px;
+  }
+
+  .search-header {
+    grid-column: span 10;
+    grid-row-start: 3;
+    justify-self: center;
+    font-weight: bold;
+    font-size: 2em;
+    color: hsl(0, 0%, 15%);
+  }
+
+  .search-wrapper {
+    grid-column: span 10;
+    grid-row-start: 5;
+    /* background-color: rgb(240, 238, 238); */
+    border-top: rgba(0, 0, 0, 0.15) solid;
+    border-bottom: rgba(0, 0, 0, 0.15) solid;
+    padding: 1em;
+    color: hsl(0, 0%, 15%);
+  }
+
+  .search-1 {
+    grid-column: span 10;
+    justify-self: start;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .search-2 {
+    grid-column: span 10;
+    justify-self: start;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+  }
+
+  .state-search {
+    grid-column: span 10;
+    justify-self: start;
+  }
+
+  .city-search {
+    grid-column: span 10;
+    justify-self: start;
+  }
+
+  .state-search > select {
+    background: rgba(0, 0, 0, 0.15);
+    font-size: 1em;
+  }
+
+  .city-search > select {
+    background: rgba(0, 0, 0, 0.15);
+    font-size: 1em;
+  }
+
+  .buttons {
+    grid-column: span 10;
+    grid-row-start: 9;
+    justify-self: end;
+    padding-top: 10px;
   }
 
   .submit-button {

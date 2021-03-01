@@ -11,25 +11,21 @@ html {
   background-color: rgb(240, 238, 238);
 }
 
-/* .container-header {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-} */
 
-@media (min-width: 1050px){
+@media (max-width: 1500px){
   .container-body{
     display: grid;
     grid-template-columns: 2fr 1fr ;
     grid-gap: 1rem;
   }
 }
-@media (min-width:485x){
+
+@media (max-width: 1050px){
   .container-body{
     display: grid;
-    grid-template-columns: auto ;
+    grid-template-columns:  1fr ;
     grid-template-rows: auto;
     grid-gap: 1rem;
   }
-
 }
+
