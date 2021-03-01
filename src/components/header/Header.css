@@ -1,8 +1,9 @@
 .header {
   color: white;
   display: grid;
-  grid-template-columns: 9fr 12fr;
+  grid-template-columns:  auto 1fr 1fr;
   grid-template-rows: 1fr;
-  background-color: #21a6ce;
+  background-color: #ffffff;
   box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
 }
+

@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Roboto+Slab:wght@600&display=swap");
 .searchbar {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repear(10, 1fr);
+  /* grid-template-rows: repeat(10, 1fr); */
   flex-direction: column;
   background-color: white;
   border-radius: 8px;
@@ -12,7 +11,6 @@
   grid-column: span 10;
   grid-row-start: 3;
   justify-self: center;
-  font-family: "Roboto Condensed", sans-serif;
   font-weight: bold;
   font-size: 2em;
   color: hsl(0, 0%, 15%);
@@ -28,7 +26,6 @@
 .search-1 {
   grid-column: span 10;
   justify-self: start;
-  font-family: "Roboto Condensed", sans-serif;
   font-weight: bold;
   padding-top: 10px;
 }
@@ -36,7 +33,6 @@
 .search-2 {
   grid-column: span 10;
   justify-self: start;
-  font-family: "Roboto Condensed", sans-serif;
   font-weight: bold;
   padding-top: 10px;
 }
@@ -62,19 +58,18 @@
   border-radius: 8px;
   padding: 0.6em 1.4em;
   margin: 0 0.6em 0.6em 0;
-  background-color: #21a6ce;
+  background-color: rgb(236, 143, 20);
   color: white;
   text-decoration: none;
   box-sizing: border-box;
   font-size: 1em;
-  /* font-weight: bold; */
-  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
   margin-left: 20px;
   box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
 }
 
 .submit-button:hover {
-  background-color: #25bce9;
+  background-color: rgb(236, 165, 71);
 }
 
 .clear-button {
@@ -85,5 +80,4 @@
   background-color: white;
   color: hsl(0, 0%, 15%);
 
-  font-family: "Roboto Condensed", sans-serif;
 }

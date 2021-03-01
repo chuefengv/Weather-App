@@ -7,7 +7,7 @@ function Title(){
         
         <div className='title'>
             <a href='./'>
-                eather-App
+                Weather-Radar
             </a>
         </div>
        
