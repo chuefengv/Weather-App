@@ -52,6 +52,7 @@ forecast_map.set(377, "SNOW")
 forecast_map.set(392, "SNOW")
 forecast_map.set(395, "SNOW")
 
+
 function Weather_icon({forecast, lastState}){
 
     useEffect(()=>{

@@ -16,6 +16,7 @@ html {
   .container-body{
     display: grid;
     grid-template-columns: 2fr 1fr ;
+
     grid-gap: 1rem;
   }
 }
@@ -24,7 +25,6 @@ html {
   .container-body{
     display: grid;
     grid-template-columns:  1fr ;
-    grid-template-rows: auto;
     grid-gap: 1rem;
   }
 }

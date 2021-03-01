@@ -16,7 +16,7 @@
     grid-column-start: 1;
     grid-column-end: 10;
     grid-row-start: 1;
-    grid-row-end: 6;
+    grid-row-end: 4;
     box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
   }
 }

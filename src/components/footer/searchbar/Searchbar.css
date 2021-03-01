@@ -10,7 +10,7 @@
 
   .search-header {
     grid-column: span 10;
-    grid-row-start: 3;
+    grid-row-start: 2;
     justify-self: center;
     font-weight: bold;
     font-size: 2em;
@@ -19,8 +19,7 @@
 
   .search-wrapper {
     grid-column: span 10;
-    grid-row-start: 5;
-    /* background-color: rgb(240, 238, 238); */
+    grid-row-start: 3;
     border-top: rgba(0, 0, 0, 0.15) solid;
     border-bottom: rgba(0, 0, 0, 0.15) solid;
     padding: 1em;
@@ -67,8 +66,9 @@
   }
 
   .buttons {
+    padding-top: 10px;
     grid-column: span 10;
-    grid-row-start: 9;
+    grid-row-start: 4;
     justify-self: end;
   }
 
@@ -203,5 +203,35 @@
     background-color: white;
     color: hsl(0, 0%, 15%);
 
+  }
+}
+
+@media (max-width:658px){
+  .search-header {
+    grid-column: span 10;
+    grid-row-start: 3;
+    justify-self: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: hsl(0, 0%, 15%);
+  }
+
+  .search-1 {
+    grid-column: span 10;
+    justify-self: start;
+    font-weight: bold;
+    font-size: 1em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .search-2 {
+    grid-column: span 10;
+    justify-self: start;
+    font-weight: bold;
+    font-size: 1em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
   }
 }
