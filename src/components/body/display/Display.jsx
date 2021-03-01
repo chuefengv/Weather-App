@@ -60,7 +60,7 @@ function Display({flag, lastState, lastCity}){
                 {lastState && <div>{temp}°F</div>}
             </div>
             <div className='weather-desc'>
-                {!lastState && <div>What to expect outside</div>}
+                {!lastState && <div>What To Expect Outside</div>}
                 {lastState && <div>{weatherDesc}</div>}
             </div>
             <div className='weather-details'>
@@ -97,6 +97,7 @@ function Display({flag, lastState, lastCity}){
             </div>
             <div className='weather-icon'>
                 <Weather_icon forecast={forecast} lastState={lastState}/>
+                
             </div>
         </div>
 

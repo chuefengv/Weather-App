@@ -14,6 +14,7 @@
   justify-self: center;
   font-family: "Roboto Condensed", sans-serif;
   font-weight: bold;
+  font-size: 2em;
   color: hsl(0, 0%, 15%);
 }
 
@@ -57,6 +58,7 @@
 }
 
 .submit-button {
+  cursor: pointer;
   border-radius: 8px;
   padding: 0.6em 1.4em;
   margin: 0 0.6em 0.6em 0;
@@ -76,6 +78,7 @@
 }
 
 .clear-button {
+  cursor: pointer;
   text-decoration: none;
   font-size: 1em;
   font-weight: bold;
