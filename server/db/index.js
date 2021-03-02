@@ -16,8 +16,8 @@ mysqldb.getCities = (state) =>{
             if(err){
                 return console.log(err);
             }else{
-                console.log("queried succesful " + state);
-                console.log(results); 
+                // console.log("queried succesful " + state);
+                // console.log(results); 
                 return resolve(results);
             }
         })

@@ -57,7 +57,6 @@ function Weather_icon({forecast, lastState}){
 
     useEffect(()=>{
         display = document.getElementsByClassName('display')[0];
-        console.log(forecast);
 
         if(forecast_map.get(forecast)=='CLEAR_DAY' || forecast_map.get(forecast)=='PARTLY_CLOUDY_DAY'){
             display.style.backgroundPosition='left';

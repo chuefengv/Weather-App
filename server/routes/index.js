@@ -9,7 +9,7 @@ router.get('/', async (req, res, next)=>{
         let results = await mysqldb.getCities(state);
         results = JSON.parse(JSON.stringify(results));
         res.json(results);
-        console.log(results);
+        // console.log(results);
     } catch(e){
         console.log(e);
         res.sendStatus(500);
