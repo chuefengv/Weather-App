@@ -3,14 +3,16 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "concurrently \"parcel index.html\" \"cd server && node server.js\"",
     "build": "parcel build index.html"
+    
   },
   "license": "MIT",
   "dependencies": {
     "@reach/combobox": "^0.13.0",
     "axios": "^0.21.1",
     "chosen-js": "^1.8.7",
+    "concurrently": "^6.0.0",
     "formik": "^2.2.6",
     "moment-timezone": "^0.5.33",
     "prettier": "^2.2.1",
