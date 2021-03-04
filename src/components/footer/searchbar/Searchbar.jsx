@@ -17,8 +17,6 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
         setCity(e.target.value);
     }
 
-
-
     handleClear = (e) =>{
         e.preventDefault();
         console.log("Cleared the selects");
@@ -27,8 +25,6 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
         setState("");
         setCity("");
     }
-
-
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -41,7 +37,7 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
 
     useEffect(()=>{
         setCurrState(lastState);
-        Axios.get("http://localhost:3000/api/data", {params: {state:state}})
+        Axios.get("http://localhost:5000/api/data", {params: {state:state}})
         .then((response)=>{
             setCityQuery(response.data);
         })

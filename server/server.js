@@ -1,18 +1,25 @@
 const express = require('express');
 const app = express();
-const apiRouter = require('./routes'); 
 const cors = require('cors');
-const bodyParser = require('body-parser');
+const pool = require('./db/index')
 
+app.use(cors()); 
 app.use(express.json());
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(cors());
-app.use('/api/data', apiRouter);
+
+//Routes
+app.get("/api/data", async(req, res)=>{
+    const state = req.query.state;
+    // console.log(req.query.state);
+    try{
+        const getCity = await pool.query("SELECT city, id FROM uscities WHERE state_name=($1) ORDER BY city", [state]);
+        res.json(getCity.rows);
+    }catch(err){
+        console.err(err.message);
+    }
+})
 
 
-
-app.listen(process.env.PORT || '3000', ()=>{
-    console.log(`Process is running on port ${process.env.PORT || 3000}`);
-
+app.listen(5000, ()=>{
+    console.log(`Process is running on port 5000`);
 
 })
