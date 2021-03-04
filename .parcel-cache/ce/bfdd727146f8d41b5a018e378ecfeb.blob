@@ -1,0 +1,5 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _Logo = require('./Logo');
+var _LogoDefault = _parcelHelpers.interopDefault(_Logo);
+exports.default = _LogoDefault.default;

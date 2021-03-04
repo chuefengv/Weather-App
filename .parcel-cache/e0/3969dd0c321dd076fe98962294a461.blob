@@ -1,0 +1,210 @@
+var helpers = require("../../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _axios = require('axios');
+  var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+  require('./Searchbar.css');
+  var _s = $RefreshSig$();
+  function Searchbar({setState, setFlag, setLastState, state, lastState, city, setCity, currState, setCurrState, setLastCity, lastCity}) {
+    _s();
+    const [cityQuery, setCityQuery] = _react.useState([]);
+    handleStateChange = e => {
+      e.preventDefault();
+      console.log(e.target.value);
+      setState(e.target.value);
+    };
+    handleCityChange = e => {
+      e.preventDefault();
+      console.log(e.target.value);
+      setCity(e.target.value);
+    };
+    handleClear = e => {
+      e.preventDefault();
+      console.log("Cleared the selects");
+      document.getElementById('s-search').selectedIndex = 0;
+      document.getElementById('c-search').selectedIndex = 0;
+      setState("");
+      setCity("");
+    };
+    handleSubmit = e => {
+      e.preventDefault();
+      console.log("handle has been submitted");
+      setLastState(state);
+      setLastCity(city);
+      setFlag(true);
+    };
+    _react.useEffect(() => {
+      setCurrState(lastState);
+      _axiosDefault.default.get("http://localhost:5432/api/data", {
+        params: {
+          state: state
+        }
+      }).then(response => {
+        setCityQuery(response.data);
+      });
+    }, [state]);
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "searchbar"
+      }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "search-header"
+      }, "Select Your State"), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "search-wrapper"
+      }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "search-1"
+      }, /*#__PURE__*/_reactDefault.default.createElement("p", null, "State Search")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "state-search"
+      }, /*#__PURE__*/_reactDefault.default.createElement("select", {
+        id: "s-search",
+        defaultValue: "default",
+        onChange: handleStateChange
+      }, /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "default",
+        disabled: true
+      }, "Choose a state..."), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Alabama"
+      }, "Alabama"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Alaska"
+      }, "Alaska"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Arizona"
+      }, "Arizona"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Arkansas"
+      }, "Arkansas"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "California"
+      }, "California"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Colorado"
+      }, "Colorado"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Connecticut"
+      }, "Connecticut"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Delaware"
+      }, "Delaware"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Florida"
+      }, "Florida"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Georgia"
+      }, "Georgia"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Hawaii"
+      }, "Hawaii"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Idaho"
+      }, "Idaho"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Illinois"
+      }, "Illinois"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Indiana"
+      }, "Indiana"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Iowa"
+      }, "Iowa"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Kansas"
+      }, "Kansas"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Kentucky"
+      }, "Kentucky"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Louisiana"
+      }, "Louisiana"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Maine"
+      }, "Maine"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Maryland"
+      }, "Maryland"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Massachusetts"
+      }, "Massachusetts"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Michigan"
+      }, "Michigan"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Minnesota"
+      }, "Minnesota"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Mississippi"
+      }, "Mississippi"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Missouri"
+      }, "Missouri"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Montana"
+      }, "Montana"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Nebraska"
+      }, "Nebraska"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Nevada"
+      }, "Nevada"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "New Hampshire"
+      }, "New Hampshire"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "New Jersey"
+      }, "New Jersey"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "New Mexico"
+      }, "New Mexico"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "New York"
+      }, "New York"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "North Carolina"
+      }, "North Carolina"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "North Dakota"
+      }, "North Dakota"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Ohio"
+      }, "Ohio"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Oklahoma"
+      }, "Oklahoma"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Oregon"
+      }, "Oregon"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Pennsylvania"
+      }, "Pennsylvania"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Rhode Island"
+      }, "Rhode Island"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "South Carolina"
+      }, "South Carolina"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "South Dakota"
+      }, "South Dakota"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Tennessee"
+      }, "Tennessee"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Texas"
+      }, "Texas"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Utah"
+      }, "Utah"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Vermont"
+      }, "Vermont"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Virginia"
+      }, "Virginia"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Washington"
+      }, "Washington"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "West Virginia"
+      }, "West Virginia"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Wisconsin"
+      }, "Wisconsin"), /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "Wyoming"
+      }, "Wyoming"))), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "search-2"
+      }, /*#__PURE__*/_reactDefault.default.createElement("p", null, "Advanced City Search")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "city-search"
+      }, /*#__PURE__*/_reactDefault.default.createElement("select", {
+        id: "c-search",
+        tabIndex: "1",
+        onChange: handleCityChange
+      }, /*#__PURE__*/_reactDefault.default.createElement("option", {
+        value: "default"
+      }, "Choose a city..."), cityQuery.map(cityName => {
+        return (
+          /*#__PURE__*/_reactDefault.default.createElement("option", {
+            key: cityName.id,
+            value: cityName.city
+          }, cityName.city)
+        );
+      })))), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "buttons"
+      }, /*#__PURE__*/_reactDefault.default.createElement("button", {
+        className: "clear-button",
+        type: "button",
+        onClick: handleClear
+      }, "Clear"), /*#__PURE__*/_reactDefault.default.createElement("button", {
+        className: "submit-button",
+        type: "button",
+        onClick: handleSubmit
+      }, "Search")))
+    );
+  }
+  _s(Searchbar, "TDpvBWD/4OHdQ0eM2eLJmL3aFYw=");
+  _c = Searchbar;
+  ;
+  exports.default = Searchbar;
+  var _c;
+  $RefreshReg$(_c, "Searchbar");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

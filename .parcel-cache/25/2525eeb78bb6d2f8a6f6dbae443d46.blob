@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>React Parcel Micro App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="cb9b45c58ca3bb655b0f35812b758755"></script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require("react");
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _componentsIndex = require("./components/index");
+  require('./style.css');
+  var _s = $RefreshSig$();
+  function App() {
+    _s();
+    const [state, setState] = _react.useState("");
+    const [lastState, setLastState] = _react.useState("");
+    const [flag, setFlag] = _react.useState(false);
+    const [city, setCity] = _react.useState("");
+    const [currState, setCurrState] = _react.useState("");
+    const [lastCity, setLastCity] = _react.useState("");
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "container-header"
+      }, /*#__PURE__*/_reactDefault.default.createElement("div", null, /*#__PURE__*/_reactDefault.default.createElement(_componentsIndex.Header, {
+        className: "header"
+      })), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "container-body"
+      }, /*#__PURE__*/_reactDefault.default.createElement(_componentsIndex.Body, {
+        className: "body",
+        flag: flag,
+        lastState: lastState,
+        lastCity: lastCity
+      }), /*#__PURE__*/_reactDefault.default.createElement(_componentsIndex.Footer, {
+        className: "footer",
+        setLastCity: setLastCity,
+        lastCity: lastCity,
+        city: city,
+        setCity: setCity,
+        currState: currState,
+        setCurrState: setCurrState,
+        setState: setState,
+        setFlag: setFlag,
+        setLastState: setLastState,
+        state: state,
+        lastState: lastState
+      })))
+    );
+  }
+  _s(App, "VaQjp02RVRwMcBS872JZNHeiBts=");
+  _c = App;
+  exports.default = App;
+  var _c;
+  $RefreshReg$(_c, "App");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

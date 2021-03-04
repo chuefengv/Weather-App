@@ -1,0 +1,43 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _searchbar = require('./searchbar');
+  var _searchbarDefault = _parcelHelpers.interopDefault(_searchbar);
+  require('./Footer.css');
+  function Footer({setState, setFlag, setLastState, state, lastState, city, setCity, currState, setCurrState, lastCity, setLastCity}) {
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "footer"
+      }, /*#__PURE__*/_reactDefault.default.createElement(_searchbarDefault.default, {
+        className: "searchbar",
+        setLastCity: setLastCity,
+        lastCity: lastCity,
+        city: city,
+        setCity: setCity,
+        currState: currState,
+        setCurrState: setCurrState,
+        setState: setState,
+        setFlag: setFlag,
+        setLastState: setLastState,
+        state: state,
+        lastState: lastState
+      }), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "copyright"
+      }, /*#__PURE__*/_reactDefault.default.createElement("p", null, "Copyright © 2021, Created By Chuefeng V.")))
+    );
+  }
+  _c = Footer;
+  exports.default = Footer;
+  var _c;
+  $RefreshReg$(_c, "Footer");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

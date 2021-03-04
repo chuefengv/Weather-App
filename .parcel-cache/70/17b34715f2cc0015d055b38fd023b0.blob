@@ -1,0 +1,33 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _display = require('./display');
+  var _displayDefault = _parcelHelpers.interopDefault(_display);
+  require('./Body.css');
+  function Body({flag, lastState, lastCity}) {
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "body"
+      }, /*#__PURE__*/_reactDefault.default.createElement(_displayDefault.default, {
+        className: "display",
+        lastCity: lastCity,
+        flag: flag,
+        lastState: lastState
+      }))
+    );
+  }
+  _c = Body;
+  exports.default = Body;
+  var _c;
+  $RefreshReg$(_c, "Body");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

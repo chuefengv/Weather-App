@@ -1,0 +1,5 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _Display = require('./Display');
+var _DisplayDefault = _parcelHelpers.interopDefault(_Display);
+exports.default = _DisplayDefault.default;

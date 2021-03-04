@@ -1,0 +1,43 @@
+var helpers = require("../../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  require('./Logo.css');
+  var _urlAssetsSatelliteDishPng = require('url:../../../assets/satellite-dish.png');
+  var _urlAssetsSatelliteDishPngDefault = _parcelHelpers.interopDefault(_urlAssetsSatelliteDishPng);
+  var _urlAssetsGithubPng = require('url:../../../assets/github.png');
+  var _urlAssetsGithubPngDefault = _parcelHelpers.interopDefault(_urlAssetsGithubPng);
+  function Logo() {
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "logo"
+      }, /*#__PURE__*/_reactDefault.default.createElement("a", {
+        target: "_blank",
+        rel: "noopener noreferrer",
+        className: "git-icon",
+        href: "https://github.com/chuefengv/Weather-App"
+      }, /*#__PURE__*/_reactDefault.default.createElement("img", {
+        src: _urlAssetsGithubPngDefault.default
+      })), /*#__PURE__*/_reactDefault.default.createElement("a", {
+        className: "radar-icon",
+        href: "./"
+      }, /*#__PURE__*/_reactDefault.default.createElement("img", {
+        src: _urlAssetsSatelliteDishPngDefault.default
+      })))
+    );
+  }
+  _c = Logo;
+  ;
+  exports.default = Logo;
+  var _c;
+  $RefreshReg$(_c, "Logo");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

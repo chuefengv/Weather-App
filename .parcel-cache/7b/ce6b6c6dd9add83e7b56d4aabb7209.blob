@@ -1,0 +1,112 @@
+var helpers = require("../../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _axios = require('axios');
+  var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+  var _reactLiveClock = require('react-live-clock');
+  var _reactLiveClockDefault = _parcelHelpers.interopDefault(_reactLiveClock);
+  require('./Display.css');
+  var _weather_icon = require('./weather_icon');
+  var _weather_iconDefault = _parcelHelpers.interopDefault(_weather_icon);
+  var _s = $RefreshSig$();
+  const API_KEY = '3bb9bbd32853ab443e3fc197c20c61ff';
+  function Display({flag, lastState, lastCity}) {
+    _s();
+    const [temp, setTemp] = _react.useState("");
+    const [precipitation, setPrecipitation] = _react.useState("");
+    const [humidity, setHumidity] = _react.useState("");
+    const [wind, setWind] = _react.useState("");
+    const [weatherDesc, setWeatherDesc] = _react.useState("");
+    const [timezone, setTimezone] = _react.useState("");
+    const [forecast, setForecast] = _react.useState(113);
+    const firstRun = _react.useRef(true);
+    const firstRun2 = _react.useRef(true);
+    _react.useEffect(() => {
+      if (firstRun.current) {
+        firstRun.current = false;
+        return;
+      }
+      _axiosDefault.default.get(`http://api.weatherstack.com/current?access_key=${API_KEY}&units=f&query=${lastState},united_states`).then(res => {
+        {
+          setTemp(res.data.current.temperature);
+          setPrecipitation(res.data.current.precip);
+          setHumidity(res.data.current.humidity);
+          setWind(res.data.current.wind_speed);
+          setWeatherDesc(res.data.current.weather_descriptions);
+          setTimezone(res.data.location.timezone_id);
+          setForecast(res.data.current.weather_code);
+        }
+      }).catch(err => {
+        console.log('bad error');
+      });
+    }, [lastState]);
+    _react.useEffect(() => {
+      if (firstRun2.current) {
+        firstRun2.current = false;
+        return;
+      }
+      _axiosDefault.default.get(`http://api.weatherstack.com/current?access_key=${API_KEY}&units=f&query=${lastCity},${lastState},united_states`).then(res => {
+        {
+          setTemp(res.data.current.temperature);
+          setPrecipitation(res.data.current.precip);
+          setHumidity(res.data.current.humidity);
+          setWind(res.data.current.wind_speed);
+          setWeatherDesc(res.data.current.weather_descriptions);
+          setTimezone(res.data.location.timezone_id);
+          setForecast(res.data.current.weather_code);
+        }
+      }).catch(err => {
+        console.log('bad error');
+      });
+    }, [lastCity]);
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "display"
+      }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "temperature"
+      }, !lastState && /*#__PURE__*/_reactDefault.default.createElement("div", null, "0°F"), lastState && /*#__PURE__*/_reactDefault.default.createElement("div", null, temp, "°F")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "weather-desc"
+      }, !lastState && /*#__PURE__*/_reactDefault.default.createElement("div", null, "What To Expect Outside"), lastState && /*#__PURE__*/_reactDefault.default.createElement("div", null, weatherDesc)), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "weather-details"
+      }, !lastState && /*#__PURE__*/_reactDefault.default.createElement("div", null, "Precipitation: 0%", /*#__PURE__*/_reactDefault.default.createElement("br", null), "Humidity: 0%", /*#__PURE__*/_reactDefault.default.createElement("br", null), "Wind Speeds: 0mph"), lastState && /*#__PURE__*/_reactDefault.default.createElement("div", null, "Precipitation: ", precipitation, "%", /*#__PURE__*/_reactDefault.default.createElement("br", null), "Humidity: ", humidity, "%", /*#__PURE__*/_reactDefault.default.createElement("br", null), "Wind Speeds: ", wind, "mph")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "city-name"
+      }, lastCity && /*#__PURE__*/_reactDefault.default.createElement("div", null, " ", lastCity, ", ")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "state-name"
+      }, !lastState && /*#__PURE__*/_reactDefault.default.createElement("div", null, "Today's Forecast"), lastState && /*#__PURE__*/_reactDefault.default.createElement("div", null, " ", lastState)), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "time-display"
+      }, !lastState && /*#__PURE__*/_reactDefault.default.createElement(_reactLiveClockDefault.default, {
+        format: 'h:mm A',
+        ticking: true,
+        timezone: 'UTC'
+      }), lastState && /*#__PURE__*/_reactDefault.default.createElement(_reactLiveClockDefault.default, {
+        format: 'h:mm A',
+        ticking: true,
+        timezone: timezone
+      })), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "date-display"
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactLiveClockDefault.default, {
+        format: 'dddd'
+      })), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "weather-icon"
+      }, /*#__PURE__*/_reactDefault.default.createElement(_weather_iconDefault.default, {
+        forecast: forecast,
+        lastState: lastState
+      })))
+    );
+  }
+  _s(Display, "FWBlMAqZzg7vFcqZy9Ya/69qSyE=");
+  _c = Display;
+  exports.default = Display;
+  var _c;
+  $RefreshReg$(_c, "Display");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

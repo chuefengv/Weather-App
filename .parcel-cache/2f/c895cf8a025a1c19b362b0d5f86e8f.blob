@@ -1,0 +1,30 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _title = require('./title');
+  var _titleDefault = _parcelHelpers.interopDefault(_title);
+  var _logo = require('./logo');
+  var _logoDefault = _parcelHelpers.interopDefault(_logo);
+  require('./Header.css');
+  function Header() {
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "header"
+      }, /*#__PURE__*/_reactDefault.default.createElement(_logoDefault.default, null), /*#__PURE__*/_reactDefault.default.createElement(_titleDefault.default, null))
+    );
+  }
+  _c = Header;
+  exports.default = Header;
+  var _c;
+  $RefreshReg$(_c, "Header");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

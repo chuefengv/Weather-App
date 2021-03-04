@@ -1,0 +1,5 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _Weather_icon = require('./Weather_icon');
+var _Weather_iconDefault = _parcelHelpers.interopDefault(_Weather_icon);
+exports.default = _Weather_iconDefault.default;
