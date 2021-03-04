@@ -18,7 +18,6 @@ app.get("/api/data", async(req, res)=>{
     }
 })
 
-
 app.listen(5000, ()=>{
     console.log(`Process is running on port 5000`);
 
