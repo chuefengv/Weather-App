@@ -4,7 +4,6 @@ const mysqldb = require('../db');
 
 router.get('/', async (req, res, next)=>{
     let state = req.query.state;
-
     try{
         let results = await mysqldb.getCities(state);
         results = JSON.parse(JSON.stringify(results));
