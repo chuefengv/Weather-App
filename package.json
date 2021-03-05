@@ -24,7 +24,9 @@
     "react-dom": "^16.13.1",
     "react-live-clock": "^5.0.16",
     "react-moment": "^1.1.1",
-    "use-autocomplete": "^1.1.1"
+    "use-autocomplete": "^1.1.1",
+    "parcel": "^2.0.0-alpha.3.2"
+
   },
   "devDependencies": {
     "babel-preset-nano-react-app": "^0.1.0",
