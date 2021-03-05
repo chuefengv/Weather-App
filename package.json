@@ -2,6 +2,8 @@
   "name": "weatherapp",
   "version": "0.1.0",
   "description": "",
+  "node": "14.16.0",
+  "npm": "7.6",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html"
