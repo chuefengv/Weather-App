@@ -4,8 +4,6 @@ import Clock from 'react-live-clock';
 import './Display.css'
 import WeatherIcon from './weather_icon'
 
-const API_KEY='3bb9bbd32853ab443e3fc197c20c61ff';
-
 function Display({flag, lastState, lastCity}){
 
     const [temp, setTemp] = useState("");
@@ -24,7 +22,7 @@ function Display({flag, lastState, lastCity}){
             firstRun.current = false;
             return;
         }
-        axios.get(`http://api.weatherstack.com/current?access_key=${API_KEY}&units=f&query=${lastState},united_states`)    
+        axios.get(`http://api.weatherstack.com/current?access_key=${process.env.API_KEY}&units=f&query=${lastState},united_states`)    
             .then(res =>{
                     setTemp(res.data.current.temperature);
                     setPrecipitation(res.data.current.precip);
@@ -45,7 +43,7 @@ function Display({flag, lastState, lastCity}){
             firstRun2.current = false;
             return;
         }
-        axios.get(`http://api.weatherstack.com/current?access_key=${API_KEY}&units=f&query=${lastCity},${lastState},united_states`)    
+        axios.get(`http://api.weatherstack.com/current?access_key=${process.env.API_KEY}&units=f&query=${lastCity},${lastState},united_states`)    
         .then(res =>{
                 setTemp(res.data.current.temperature);
                 setPrecipitation(res.data.current.precip);
