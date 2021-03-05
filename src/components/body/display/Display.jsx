@@ -16,25 +16,26 @@ function Display({flag, lastState, lastCity}){
     const firstRun = useRef(true);
     const firstRun2 = useRef(true);
 
+    // const API_KEY='d927a6b3c39a782e1a9e488ba5fd8e5a';
+    const API_KEY=process.env.API_KEY;
 
     useEffect(()=>{
         if (firstRun.current) {
             firstRun.current = false;
             return;
         }
-        axios.get(`http://api.weatherstack.com/current?access_key=${process.env.API_KEY}&units=f&query=${lastState},united_states`)    
+        axios.get(`http://api.weatherstack.com/current?access_key=${API_KEY}&units=f&query=${lastState},united_states`)    
             .then(res =>{
-                    setTemp(res.data.current.temperature);
-                    setPrecipitation(res.data.current.precip);
-                    setHumidity(res.data.current.humidity);
-                    setWind(res.data.current.wind_speed);
-                    setWeatherDesc(res.data.current.weather_descriptions);
-                    setTimezone(res.data.location.timezone_id);
-                    setForecast(res.data.current.weather_code);     
-                
+                setTemp(res.data.current.temperature);
+                setPrecipitation(res.data.current.precip);
+                setHumidity(res.data.current.humidity);
+                setWind(res.data.current.wind_speed);
+                setWeatherDesc(res.data.current.weather_descriptions);
+                setTimezone(res.data.location.timezone_id);
+                setForecast(res.data.current.weather_code);             
             })
             .catch(err =>{
-                console.log('bad error');
+                console.log(err.message);
             })
     },[lastState]);
 

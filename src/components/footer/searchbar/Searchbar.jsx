@@ -28,16 +28,15 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
 
     let handleSubmit = (e) => {
         e.preventDefault();
-        console.log("handle has been submitted");
+        console.log("data has been submitted");
         setLastState(state)
         setLastCity(city)
-        
         setFlag(true);
     }
 
     useEffect(()=>{
         setCurrState(lastState);
-        Axios.get(`http://localhost:${process.env.PORT || 5000}/api/data`, {params: {state:state}})
+        Axios.get('http://localhost:5000/api/data', {params: {state:state}})
         .then((response)=>{
             setCityQuery(response.data);
         })
