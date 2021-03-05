@@ -27,8 +27,6 @@
     "use-autocomplete": "^1.1.1",
     "parcel": "^2.0.0-alpha.3.2",
     "babel-preset-nano-react-app": "^0.1.0"
-
-
   },
   "devDependencies": {
     "babel-preset-nano-react-app": "^0.1.0",

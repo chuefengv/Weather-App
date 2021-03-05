@@ -7,6 +7,10 @@ app.use(cors());
 app.use(express.json());
 
 //Routes
+app.get('/', function(req, res){
+    res.redirect('/api/data');
+ });
+
 app.get("/api/data", async(req, res)=>{
     const state = req.query.state;
     // console.log(req.query.state);

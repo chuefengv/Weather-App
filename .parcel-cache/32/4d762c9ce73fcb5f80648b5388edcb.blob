@@ -1,0 +1,5 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _Title = require('./Title');
+var _TitleDefault = _parcelHelpers.interopDefault(_Title);
+exports.default = _TitleDefault.default;
