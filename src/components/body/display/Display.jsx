@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState }  from 'react'
 import axios from 'axios';
 import Clock from 'react-live-clock';
 import './Display.css'
-import Weather_icon from './weather_icon'
+import WeatherIcon from './weather_icon'
 
 const API_KEY='3bb9bbd32853ab443e3fc197c20c61ff';
 
@@ -26,16 +26,14 @@ function Display({flag, lastState, lastCity}){
         }
         axios.get(`http://api.weatherstack.com/current?access_key=${API_KEY}&units=f&query=${lastState},united_states`)    
             .then(res =>{
-                {
                     setTemp(res.data.current.temperature);
                     setPrecipitation(res.data.current.precip);
                     setHumidity(res.data.current.humidity);
                     setWind(res.data.current.wind_speed);
                     setWeatherDesc(res.data.current.weather_descriptions);
                     setTimezone(res.data.location.timezone_id);
-                    setForecast(res.data.current.weather_code);
-                    
-                }
+                    setForecast(res.data.current.weather_code);     
+                
             })
             .catch(err =>{
                 console.log('bad error');
@@ -49,7 +47,6 @@ function Display({flag, lastState, lastCity}){
         }
         axios.get(`http://api.weatherstack.com/current?access_key=${API_KEY}&units=f&query=${lastCity},${lastState},united_states`)    
         .then(res =>{
-            {
                 setTemp(res.data.current.temperature);
                 setPrecipitation(res.data.current.precip);
                 setHumidity(res.data.current.humidity);
@@ -57,12 +54,11 @@ function Display({flag, lastState, lastCity}){
                 setWeatherDesc(res.data.current.weather_descriptions);
                 setTimezone(res.data.location.timezone_id);
                 setForecast(res.data.current.weather_code);
-            }
         })
         .catch(err =>{
             console.log('bad error');
         })
-    },[lastCity]);
+    },[lastCity, lastState]);
 
 
     return(
@@ -108,7 +104,7 @@ function Display({flag, lastState, lastCity}){
                 {<Clock format={'dddd'} />}
             </div>
             <div className='weather-icon'>
-                <Weather_icon forecast={forecast} lastState={lastState}/>
+                <WeatherIcon forecast={forecast} lastState={lastState}/>
             </div>
         </div>
 

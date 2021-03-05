@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import './Weather_icon.css'
 import ReactAnimatedWeather from 'react-animated-weather'
 
@@ -53,12 +53,12 @@ forecast_map.set(392, "SNOW")
 forecast_map.set(395, "SNOW")
 
 
-function Weather_icon({forecast, lastState}){
+function WeatherIcon({forecast, lastState}){
 
     useEffect(()=>{
-        display = document.getElementsByClassName('display')[0];
+        let display = document.getElementsByClassName('display')[0];
 
-        if(forecast_map.get(forecast)=='CLEAR_DAY' || forecast_map.get(forecast)=='PARTLY_CLOUDY_DAY'){
+        if(forecast_map.get(forecast)==='CLEAR_DAY' || forecast_map.get(forecast)==='PARTLY_CLOUDY_DAY'){
             display.style.backgroundPosition='left';
             display.style.transition='background-position 3s'
         }
@@ -95,4 +95,4 @@ function Weather_icon({forecast, lastState}){
     )
 }
 
-export default Weather_icon;
+export default WeatherIcon;

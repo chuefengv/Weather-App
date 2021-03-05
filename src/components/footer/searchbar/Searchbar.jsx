@@ -5,19 +5,19 @@ import './Searchbar.css';
 function Searchbar({setState, setFlag, setLastState, state, lastState, city, setCity, currState, setCurrState, setLastCity, lastCity}){
     const [cityQuery, setCityQuery] = useState([]);
 
-    handleStateChange = (e) =>{
+    let handleStateChange = (e) =>{
         e.preventDefault();
         console.log(e.target.value);
         setState(e.target.value);
         // setCity(defaultValue)
     }
-    handleCityChange = (e) =>{
+    let handleCityChange = (e) =>{
         e.preventDefault();
         console.log(e.target.value);
         setCity(e.target.value);
     }
 
-    handleClear = (e) =>{
+    let handleClear = (e) =>{
         e.preventDefault();
         console.log("Cleared the selects");
         document.getElementById('s-search').selectedIndex=0;
@@ -26,7 +26,7 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
         setCity("");
     }
 
-    handleSubmit = (e) => {
+    let handleSubmit = (e) => {
         e.preventDefault();
         console.log("handle has been submitted");
         setLastState(state)
@@ -41,7 +41,7 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
         .then((response)=>{
             setCityQuery(response.data);
         })
-    },[state]);
+    },[state, lastState, setCurrState]);
 
     return(
         <div className='searchbar'>
