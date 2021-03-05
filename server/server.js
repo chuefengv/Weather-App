@@ -18,7 +18,7 @@ app.get("/api/data", async(req, res)=>{
         const getCity = await pool.query("SELECT city, id FROM uscities WHERE state_name=($1) ORDER BY city", [state]);
         res.json(getCity.rows);
     }catch(err){
-        console.err(err.message);
+        console.log(err.message);
     }
 })
 

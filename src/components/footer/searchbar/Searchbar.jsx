@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import './Searchbar.css';
 
+const PORT = (process.env.PORT || '5000');
+
 function Searchbar({setState, setFlag, setLastState, state, lastState, city, setCity, currState, setCurrState, setLastCity, lastCity}){
     const [cityQuery, setCityQuery] = useState([]);
 
@@ -36,7 +38,7 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
 
     useEffect(()=>{
         setCurrState(lastState);
-        Axios.get('http://localhost:5000/api/data', {params: {state:state}})
+        Axios.get(`http://localhost:${PORT}/api/data`, {params: {state:state}})
         .then((response)=>{
             setCityQuery(response.data);
         })

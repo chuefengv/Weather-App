@@ -16,7 +16,6 @@ function Display({flag, lastState, lastCity}){
     const firstRun = useRef(true);
     const firstRun2 = useRef(true);
 
-    // const API_KEY='d927a6b3c39a782e1a9e488ba5fd8e5a';
     const API_KEY=process.env.API_KEY;
 
     useEffect(()=>{
