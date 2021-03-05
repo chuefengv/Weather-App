@@ -35,7 +35,8 @@ function Display({flag, lastState, lastCity}){
             })
             .catch(err =>{
                 console.log('bad error');
-                console.log(process.env.API_KEY)
+                console.log(process.env.API_KEY);
+                console.log(process.env.DB);
             })
     },[lastState]);
 
