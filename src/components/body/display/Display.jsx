@@ -43,7 +43,7 @@ function Display({flag, lastState, lastCity}){
             firstRun2.current = false;
             return;
         }
-        axios.get(`http://api.weatherstack.com/current?access_key=${process.env.API_KEY}&units=f&query=${lastCity},${lastState},united_states`)    
+        axios.get(`http://api.weatherstack.com/current?access_key=d927a6b3c39a782e1a9e488ba5fd8e5a&units=f&query=${lastCity},${lastState},united_states`)    
         .then(res =>{
                 setTemp(res.data.current.temperature);
                 setPrecipitation(res.data.current.precip);
