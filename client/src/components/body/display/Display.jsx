@@ -54,6 +54,10 @@ function Display({flag, lastState, lastCity, city}){
                 setWeatherDesc(res.data.current.weather_descriptions);
                 setTimezone(res.data.location.timezone_id);
                 setForecast(res.data.current.weather_code);
+                console.log(process.env.DB_PASS)
+                console.log(process.env.DB_USER)
+                console.log(process.env.DB)
+                console.log(process.env.DB_HOST)
         })
         .catch(err =>{
             console.log(err.message);
