@@ -11,14 +11,13 @@ app.use(express.json());
 // }
 
 app.get("/", async(req, res)=>{
-    // const state = req.query.state;
-    // try{
-    //     const getCity = await pool.query("SELECT city, id FROM uscities WHERE state_name='Massachusetts' ORDER BY city");
-    //     res.json(getCity.rows)
-    // }catch(err){
-    //     console.log(err.message)
-    // }
-    res.send('hello world')
+    const state = req.query.state;
+    try{
+        const getCity = await pool.query("SELECT city, id FROM uscities WHERE state_name='Massachusetts' ORDER BY city");
+        res.json(getCity.rows)
+    }catch(err){
+        console.log(err.message)
+    }
 })
 
 app.listen(process.env.PORT || 5000, ()=>{
