@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body,
+html {
+  height: 100%;
+  /* overflow: hidden; */
+  background-color: rgb(240, 238, 238);
+}
+
+
+@media (max-width: 1500px){
+  .container-body{
+    display: grid;
+    grid-template-columns: 2fr 1fr ;
+
+    grid-gap: 1rem;
+  }
+}
+
+@media (max-width: 1050px){
+  .container-body{
+    display: grid;
+    grid-template-columns:  1fr ;
+    grid-gap: 1rem;
+  }
+}
+
