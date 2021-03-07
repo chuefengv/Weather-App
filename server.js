@@ -10,16 +10,11 @@ app.use(express.json());
 //     app.use(express.static(path_join(__dirname, 'client/build')))
 // }
 
-// Routes
-app.get('/', function(req, res){
-    res.redirect('/api/data')
- });
-
-app.get("/api/data", async(req, res)=>{
+app.get("/", async(req, res)=>{
     const state = req.query.state;
     // console.log(req.query.state);
     try{
-        const getCity = await pool.query("SELECT city, id FROM uscities WHERE state_name='Maine' ORDER BY city");
+        const getCity = await pool.query("SELECT city, id FROM uscities WHERE state_name='Massachusetts' ORDER BY city");
         res.json(getCity.rows)
     }catch(err){
         console.log(err.message)
@@ -27,6 +22,6 @@ app.get("/api/data", async(req, res)=>{
 })
 
 app.listen(process.env.PORT || 5000, ()=>{
-    console.log(`Process is running on port 5000`)
+    console.log(`Process is running on port ${process.env.PORT || 5000}`)
 
 })

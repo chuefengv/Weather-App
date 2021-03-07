@@ -6,7 +6,7 @@ const pool = new Pool({
     database: (process.env.DB || 'd617u788n94tn'),
     host: (process.env.DB_HOST || 'ec2-52-71-231-37.compute-1.amazonaws.com'),
     port: '5432',
-    ssl: {rejectUnauthorized:false}
+    // ssl: {rejectUnauthorized:false}
 });
 
 module.exports = pool;
