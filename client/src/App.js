@@ -18,7 +18,7 @@ function App(){
           <Header className='header' />
         </div>
         <div className='container-body'>
-          <Body className='body' flag={flag} lastState={lastState} lastCity={lastCity}/>
+          <Body className='body' flag={flag} lastState={lastState} lastCity={lastCity} city={city}/>
           <Footer className='footer' setLastCity={setLastCity} lastCity={lastCity} city={city} setCity={setCity} currState={currState} setCurrState={setCurrState} setState={setState} setFlag={setFlag} setLastState={setLastState} state={state} lastState={lastState}/>
         </div>
       </div>

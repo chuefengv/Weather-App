@@ -4,7 +4,7 @@ import Clock from 'react-live-clock';
 import './Display.css'
 import WeatherIcon from './weather_icon'
 
-function Display({flag, lastState, lastCity}){
+function Display({flag, lastState, lastCity, city}){
 
     const [temp, setTemp] = useState("");
     const [precipitation, setPrecipitation] = useState("");
@@ -16,7 +16,7 @@ function Display({flag, lastState, lastCity}){
     const firstRun = useRef(true);
     const firstRun2 = useRef(true);
 
-    const API_KEY=process.env.API_KEY;
+    const API_KEY=process.env.API_KEY || 'd927a6b3c39a782e1a9e488ba5fd8e5a';
 
     useEffect(()=>{
         if (firstRun.current) {
@@ -25,6 +25,7 @@ function Display({flag, lastState, lastCity}){
         }
         axios.get(`http://api.weatherstack.com/current?access_key=${API_KEY}&units=f&query=${lastState},united_states`)    
             .then(res =>{
+                // console.log(res.data);
                 setTemp(res.data.current.temperature);
                 setPrecipitation(res.data.current.precip);
                 setHumidity(res.data.current.humidity);
@@ -36,15 +37,16 @@ function Display({flag, lastState, lastCity}){
             .catch(err =>{
                 console.log(err.message);
             })
-    },[lastState]);
+        
+    },[lastState, API_KEY]);
 
     useEffect(()=>{
-        if (firstRun2.current) {
-            firstRun2.current = false;
+        if (city === '') {
             return;
         }
-        axios.get(`http://api.weatherstack.com/current?access_key=d927a6b3c39a782e1a9e488ba5fd8e5a&units=f&query=${lastCity},${lastState},united_states`)    
+        axios.get(`http://api.weatherstack.com/current?access_key=${API_KEY}&units=f&query=${lastCity},${lastState},united_states`)    
         .then(res =>{
+                console.log(res.data);
                 setTemp(res.data.current.temperature);
                 setPrecipitation(res.data.current.precip);
                 setHumidity(res.data.current.humidity);
@@ -54,9 +56,9 @@ function Display({flag, lastState, lastCity}){
                 setForecast(res.data.current.weather_code);
         })
         .catch(err =>{
-            console.log('bad error');
+            console.log(err.message);
         })
-    },[lastCity, lastState]);
+    },[lastCity, lastState, API_KEY]);
 
 
     return(

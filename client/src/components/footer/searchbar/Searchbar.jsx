@@ -11,7 +11,7 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
         e.preventDefault();
         console.log(e.target.value);
         setState(e.target.value);
-        // setCity(defaultValue)
+        setCity("");
     }
     let handleCityChange = (e) =>{
         e.preventDefault();
