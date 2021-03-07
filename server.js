@@ -13,7 +13,7 @@ if(process.env.NODE_ENV === 'production'){
 app.get("/", async(req, res)=>{
     const state = req.query.state;
     try{
-        const getCity = await pool.query("SELECT city, id FROM uscities WHERE state_name='Massachusetts' ORDER BY city");
+        const getCity = await pool.query("SELECT city, id FROM uscities WHERE state_name=($1) ORDER BY city",[state]);
         res.json(getCity.rows)
     }catch(err){
         console.log(err.message)
