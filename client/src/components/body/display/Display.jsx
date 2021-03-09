@@ -6,37 +6,40 @@ import WeatherIcon from './weather_icon'
 
 function Display({flag, lastState, lastCity, city}){
 
+    //the temperature of the location
     const [temp, setTemp] = useState("");
+    //weather details of the location
     const [precipitation, setPrecipitation] = useState("");
     const [humidity, setHumidity] = useState("");
     const [wind, setWind] = useState("");
+    //weather forecast description of the location
     const [weatherDesc, setWeatherDesc] = useState("");
+    //timezone depending on the region
     const [timezone, setTimezone] = useState("");
+    //forecast, to be used to determine forecast icon
     const [forecast, setForecast] = useState(113);
+    //flags to determine when to mount
     const firstRun = useRef(true);
-    const firstRun2 = useRef(true);
 
     const API_KEY=process.env.API_KEY || 'd927a6b3c39a782e1a9e488ba5fd8e5a';
 
+    //when an api request is sent with ONLY a state chosen
     useEffect(()=>{
+        //do not mount on first load
         if (firstRun.current) {
             firstRun.current = false;
             return;
         }
         axios.get(`http://api.weatherstack.com/current?access_key=${API_KEY}&units=f&query=${lastState},united_states`)    
             .then(res =>{
-                // console.log(res.data);
+                //all the information needed for the display
                 setTemp(res.data.current.temperature);
                 setPrecipitation(res.data.current.precip);
                 setHumidity(res.data.current.humidity);
                 setWind(res.data.current.wind_speed);
                 setWeatherDesc(res.data.current.weather_descriptions);
                 setTimezone(res.data.location.timezone_id);
-                setForecast(res.data.current.weather_code);  
-                // console.log(process.env.DB_PASS)
-                // console.log(process.env.DB_USER)
-                // console.log(process.env.DB)
-                // console.log(process.env.DB_HOST)           
+                setForecast(res.data.current.weather_code);          
             })
             .catch(err =>{
                 console.log(err.message);
@@ -44,13 +47,15 @@ function Display({flag, lastState, lastCity, city}){
         
     },[lastState, API_KEY]);
 
+    //when an API request is sent with both city AND state options chosen
     useEffect(()=>{
+        //do not mount until a city option is chosen
         if (city === '') {
             return;
         }
         axios.get(`http://api.weatherstack.com/current?access_key=${API_KEY}&units=f&query=${lastCity},${lastState},united_states`)    
         .then(res =>{
-                console.log(res.data);
+                //all the information needed for the display
                 setTemp(res.data.current.temperature);
                 setPrecipitation(res.data.current.precip);
                 setHumidity(res.data.current.humidity);
@@ -68,11 +73,15 @@ function Display({flag, lastState, lastCity, city}){
     return(
         <div className='display'>
             <div className='temperature'>
+                {/* default option for when no options have been chosen */}
                 {!lastState && <div>0°F</div>}
+
+                {/* when an api call has been submitted, update display */}
                 {lastState && <div>{temp}°F</div>}
             </div>
             <div className='weather-desc'>
                 {!lastState && <div>What To Expect Outside</div>}
+
                 {lastState && <div>{weatherDesc}</div>}
             </div>
             <div className='weather-details'>
@@ -84,6 +93,7 @@ function Display({flag, lastState, lastCity, city}){
                 <br></br>
                 Wind Speeds: 0mph
             </div>}
+
             {lastState && 
             <div>
                 Precipitation: {precipitation}%

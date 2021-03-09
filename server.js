@@ -5,18 +5,13 @@ const pool = require('./db/index')
 
 app.use(cors()); 
 app.use(express.json());
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*"); 
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,PATCH,OPTION");
 
-//     next();
-//   });
-
+//if deployed in production mode, serve the front end
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'))
 }
 
+//api route to GET city query from states database
 app.get('/api/data', async(req, res)=>{
     const state = req.query.state;
     try{

@@ -7,18 +7,23 @@ const PORT = (process.env.PORT || '5000');
 function Searchbar({setState, setFlag, setLastState, state, lastState, city, setCity, currState, setCurrState, setLastCity, lastCity}){
     const [cityQuery, setCityQuery] = useState([]);
 
+    //when the user selects an option of 'state' in the search bar, set accordingly
+    //when new state is selected, reset 'city' option
     let handleStateChange = (e) =>{
         e.preventDefault();
         console.log(e.target.value);
         setState(e.target.value);
         setCity("");
     }
+
+    //when the user selects an option of 'city' in the search bar, set accordingly
     let handleCityChange = (e) =>{
         e.preventDefault();
         console.log(e.target.value);
         setCity(e.target.value);
     }
 
+    //clears the selected options for both 'state' and 'city'
     let handleClear = (e) =>{
         e.preventDefault();
         console.log("Cleared the selects");
@@ -28,6 +33,8 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
         setCity("");
     }
 
+    //submitted the selected options to api
+    //keep track of last state of each option
     let handleSubmit = (e) => {
         e.preventDefault();
         console.log("data has been submitted");
@@ -37,9 +44,12 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
     }
 
     useEffect(()=>{
+        //on the first load, do not run
         if(state===""){
             return;
         }
+        //Query all cities that fall under the currently selected 'state'
+        //populate city search option
         setCurrState(lastState);
         Axios.get(`/api/data`, {params: {state:state}})
         .then(response=>{
@@ -113,6 +123,7 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
                     <p>Advanced City Search</p>
                 </div>
                 <div className='city-search'>
+                    {/* recieve query from database, populate select box with each city from chosen 'state' */}
                     <select id='c-search' tabIndex='1' onChange={handleCityChange}>
                         <option value="default">Choose a city...</option>
                         {cityQuery.map((cityName)=>{
