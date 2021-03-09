@@ -41,8 +41,8 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
             return;
         }
         setCurrState(lastState);
-        Axios.get(`http://localhost:${PORT}/api/data`, {query: {state:state}})
-        .then((response)=>{
+        Axios.get(`http://localhost:${PORT}/api/data`, {params: {state:state}})
+        .then(response=>{
             setCityQuery(response.data);
         })
     },[state, lastState, setCurrState]);
