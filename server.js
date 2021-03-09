@@ -10,7 +10,7 @@ if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'))
 }
 
-app.get("/api/data", async(req, res)=>{
+app.get('/api/data?state=', async(req, res)=>{
     const state = req.query.state;
     try{
         const getCity = await pool.query("SELECT city, id FROM uscities WHERE state_name=($1) ORDER BY city",[state]);
