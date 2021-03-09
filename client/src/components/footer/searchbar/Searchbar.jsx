@@ -37,6 +37,9 @@ function Searchbar({setState, setFlag, setLastState, state, lastState, city, set
     }
 
     useEffect(()=>{
+        if(state===""){
+            return;
+        }
         setCurrState(lastState);
         Axios.get(`http://localhost:${PORT}/api/data`, {params: {state:state}})
         .then((response)=>{
