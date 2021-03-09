@@ -76,6 +76,7 @@ function WeatherIcon({forecast, lastState}){
 
     return(
         <div>
+            {/* default display while no options have been chosen */}
             {!lastState &&              
             <ReactAnimatedWeather
                 icon='CLEAR_DAY'
