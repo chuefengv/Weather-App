@@ -7,3 +7,11 @@ A web app that tells the weather of any state and/or city in the USA.
 - LOGO/ICONS from freepik.com
 
 * API IS NOT SECURED, MUST RUN UNDER HTTP NOT HTTPS 
+
+![screen shot of page](./readme-pic/one.png)
+
+![screen shot of page](./readme-pic/two.png)
+
+![screen shot of page](./readme-pic/three.png)
+
+![screen shot of page](./readme-pic/four.png)
